@@ -21,6 +21,10 @@ public class SpherePlayerController : MonoBehaviour
     private float mouseY;
     private float camYRotation;
 
+    [Header("SFX")]
+    public AudioSource movementSFX;
+    private bool isMoving = false;
+
     private void Awake()
     {
         if (sphereRigidbody == null)
@@ -40,6 +44,13 @@ public class SpherePlayerController : MonoBehaviour
     {
         MoveSphere();
         MoveCamera();
+
+        if (sphereRigidbody.linearVelocity.magnitude > 0.1f)
+            isMoving = true;
+        else
+            isMoving = false;
+
+        PlayMovementSFX(isMoving);
     }
 
     private void MoveSphere()
@@ -70,4 +81,19 @@ public class SpherePlayerController : MonoBehaviour
         cameraY.localRotation = Quaternion.Euler(camYRotation, 0, 0);
     }
 
+    private void PlayMovementSFX(bool playing)
+    {
+        if (playing && !movementSFX.isPlaying)
+        {
+            movementSFX.Play();
+            Debug.Log($"Playing SFX");
+
+        }
+        else if (!playing && movementSFX.isPlaying)
+        { 
+            movementSFX.Stop();
+            Debug.Log($"Stopping SFX");
+        
+        }
+    }
 }
