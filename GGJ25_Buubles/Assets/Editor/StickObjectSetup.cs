@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class StickObjectSetup : MonoBehaviour
 {
-    [MenuItem("Tools/Add Box Collider and Rigidbody to Selected")]
+    [MenuItem("Tools/StickObject Setup")]
     private static void AddComponentsToSelected()
     {
         // Get all selected GameObjects
