@@ -25,6 +25,7 @@ public class ContainmentManager : MonoBehaviour
 
         // Set item inside the bubble
         newItem.transform.parent = containmentArea;
+        newItem.transform.localScale = Vector3.one;
         Vector3 randomPointInside = Random.insideUnitSphere * (containerCollider.bounds.extents.magnitude - 0.5f);
         newItem.transform.localPosition = randomPointInside;
     }

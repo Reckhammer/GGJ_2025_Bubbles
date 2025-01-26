@@ -3,7 +3,7 @@ using UnityEngine;
 public class ItemCollector : MonoBehaviour
 {
     private Collider m_Collider;
-    public float colliderSize => (m_Collider.bounds.size.x);
+    public float colliderSize => (4/3) * Mathf.PI * Mathf.Pow(m_Collider.bounds.size.x, 3);
 
     private void Awake()
     {
