@@ -10,11 +10,16 @@ public class ContainmentManager : MonoBehaviour
     {
         instance = this;
     }
+    private void Start()
+    {
+        this.transform.localScale = ScaleManager.instance.levelTransform.localScale;   
+    }
 
     private void OnDestroy()
     {
         instance = null;
     }
+
 
     public void AddStickObject(StickObject newItem)
     {
