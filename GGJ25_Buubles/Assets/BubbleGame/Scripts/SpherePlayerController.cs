@@ -84,16 +84,8 @@ public class SpherePlayerController : MonoBehaviour
     private void PlayMovementSFX(bool playing)
     {
         if (playing && !movementSFX.isPlaying)
-        {
             movementSFX.Play();
-            Debug.Log($"Playing SFX");
-
-        }
         else if (!playing && movementSFX.isPlaying)
-        { 
             movementSFX.Stop();
-            Debug.Log($"Stopping SFX");
-        
-        }
     }
 }
