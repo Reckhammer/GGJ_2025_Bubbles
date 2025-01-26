@@ -30,6 +30,10 @@ public class SpherePlayerController : MonoBehaviour
     private void Start()
     {
         sphereRigidbody.linearDamping = momentumDampening;
+
+        // Lock and hide the cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void Update()
