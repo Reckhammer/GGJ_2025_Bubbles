@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ScaleManager : MonoBehaviour
@@ -8,6 +9,7 @@ public class ScaleManager : MonoBehaviour
     public Transform collectItemTransform;
     public float scaleFactor = 0.1f;
     public float minScale = 0.01f; // Minimum scale to prevent it from disappearing
+    public event Action desiredWorldScaleReached;
 
     private void Awake()
     {
@@ -43,6 +45,10 @@ public class ScaleManager : MonoBehaviour
             collectItemTransform.localScale = newScale;
 
             Debug.Log($"World scaled to: {newScale} based on object size ratio: {sizeRatio}, objectVolume = {objectVolume}, playerVolume = {playerVolume}");
+
+            if (GameConditionManager.instance.goalWorldScale <= levelTransform.localScale.x)
+                desiredWorldScaleReached?.Invoke();
+          
         }
 
         //// Calculate the volume (assuming a box for simplicity)
