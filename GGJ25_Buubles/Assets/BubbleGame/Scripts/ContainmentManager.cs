@@ -12,7 +12,7 @@ public class ContainmentManager : MonoBehaviour
     }
     private void Start()
     {
-        this.transform.localScale = ScaleManager.instance.levelTransform.localScale;   
+        this.transform.localScale = ScaleManager.instance.levelTransform.localScale;
     }
 
     private void OnDestroy()
@@ -30,8 +30,8 @@ public class ContainmentManager : MonoBehaviour
 
         // Set item inside the bubble
         newItem.transform.parent = containmentArea;
-        newItem.transform.localScale = Vector3.one;
-        Vector3 randomPointInside = Random.insideUnitSphere * (containerCollider.bounds.extents.magnitude - 0.5f);
+        Vector3 randomPointInside = Random.insideUnitSphere * (containerCollider.bounds.extents.magnitude - 0.5f) / transform.localScale.x;
         newItem.transform.localPosition = randomPointInside;
+        newItem.transform.localScale = Vector3.one;
     }
 }
