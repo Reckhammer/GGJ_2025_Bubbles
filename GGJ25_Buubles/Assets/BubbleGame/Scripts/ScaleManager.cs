@@ -27,8 +27,6 @@ public class ScaleManager : MonoBehaviour
         // Get the picked object's size
         float objectVolume = stickObj.size;
 
-        Debug.Log($"Object Volume = {objectVolume}");
-
         if (playerVolume > 0 && objectVolume > 0)
         {
             // Calculate the scaling factor based on the size ratio
