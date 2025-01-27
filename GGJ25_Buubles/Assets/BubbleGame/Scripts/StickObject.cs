@@ -18,7 +18,7 @@ public class StickObject : MonoBehaviour
     public void Stick()
     {
         Debug.Log($"{this.name} has been stuck!", this);
-        ContainmentManager.instance.AddStickObject(this);
         ScaleManager.instance.ScaleDown(this);
+        ContainmentManager.instance.AddStickObject(this);
     }
 }
